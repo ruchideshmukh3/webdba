@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+.choice {
+	background-color: pink;
+	border: solid 1px;
+	border-radius: 2px;
+	margin: 4x;
+	padding: 2px;
+	display: inline-block;
+	cursor: pointer;
+}
+</style>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+
+
+
+<body style="background-color: #E9ECEF;">
+	
+
+		<div class="mt-4">
+			<div id="converastion">
+				<div>Hi! I am chatBot How Can I help You?</div>
+				<div>what you need assistant?</div>
+				<div>
+					<a onclick="submitChoice(this)" data-choice="Roles"
+						class="choice badge badge-primary ">Roles and Permission?</a>
+				
+					<a onclick="submitChoice(this)" data-choice="search" class="choice  badge badge-primary">Other</a>
+				<!-- 	<a onclick="submitChoice(this)" data-choice="close" class="choice  badge badge-primary" href="@{/LoginDashboard}">Close</a> -->
+					
+					</div>
+			
+		<!--  	<input type="text" style="display: none" class="form-control" id="joke1" name="joke1">
+			<input type="text" style="display: none" class="form-control" id="search" name="search"> -->
+
+				<small id="Roles" name="Roles" style="display: none" class="form-text text-muted">Please email at roles@wdba.org for roles and permission</small>
+				<small id="search"name="search" style="display: none" class="form-text text-muted">Please email at admin@wdba.org for other help</small>
+   
+		</div>
+		</div>
+		
+		<script>
+			function submitChoice(el) {
+				var choice = el.dataset.choice;
+				//$.post("/chatbot",{choice:choice},function(result)){
+
+				if (choice == "Roles") {
+					$("#Roles").show();
+					$("#search").hide();
+				} else {
+					$("#search").show();
+					$("#Roles").hide();
+				}
+			}
+		</script>
+		<script type="text/javascript"
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+	
+</body>
+</html>

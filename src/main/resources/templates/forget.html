@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<title>Login Page</title>
+</head>
+<body style="background-color: powderblue;">
+	<form th:action="@{/forget}" method="post">
+		<div class="container w-50 mt-5">
+			<h1 class="display-5 center">
+				<marquee>Welcome in webdba</marquee>
+			</h1>
+			<div class="jumbotron mt-3 border border-warning  py-4">
+				<div class="container">
+					<img src="/img/IMG-4005.jpg" alt="webdba logo"
+						style="width: 120px; height: 120px; margin: 0 auto 10px; display: block">
+				</div>
+
+				<p class=" text-muted text-justify">All data is safe and
+					confidential with web based database administrator. Only authorised
+					persons with roles and permission will able to access the data and
+					website.</p>
+
+				<!--  <hr class="my-4 "> -->
+				<h3 class="display-6 text-center mt-3" style="margin-top: -50px;">Forget
+					Password</h3>
+				<!-- <hr class="my-4"> -->
+				<hr class="w-75">
+
+				<div class="container mt-3">
+				<input type="text" name="username" required>
+				
+				
+					<button type="submit" class="btn btn-primary btn-sm">Show
+						Password</button>
+					<input type="reset" class="btn btn-primary btn-sm">
+
+				</div>
+
+
+
+				<div class="text-center mt-4"></div>
+
+				<div class="form-group row mt-2 container"
+					th:if="${!#strings.isEmpty(users)}">
+					<label class="col-3 col-form-label text-left">Password:</label>
+					<div class="col-3 container">
+						<input type="text" class="form-control  text-dark"
+							th:value="${users?.password}" readonly>
+					</div>
+					<a class="nav-link" th:href="@{/login}">Login Again</a>
+				</div>
+
+			</div>
+
+		</div>
+	</form>
+
+	<script>
+		function clear() {
+			document.getElementById("exampleInputEmail1").value = "";
+		}
+	</script>
+</body>
+</html>

@@ -1,58 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link href="LoginPage.css" rel="stylesheet">
-<link href="LoginPage.js" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<title>Login Page</title>
 </head>
+<body style="background-color: powderblue;">
+	<div class="container w-50 mt-5">
+		<h1 class="display-5 center">
+			<marquee>Welcome Administrator!</marquee>
+		</h1>
+		<div class="jumbotron mt-3 border border-warning  py-4">
+			<div class="">
+				<img src="/img/IMG-4005.jpg" alt="webdba logo"
+					style="width: 120px; height: 120px; margin: 0 auto 10px; display: block">
+			</div>
 
-<body style="background-color:powderblue;"> 
+			<p class=" text-muted text-justify">All data is safe and
+				confidential with web based database administrator. Only authorised
+				persons with roles and permission will able to access the data and
+				website.</p>
+			<hr class="my-4 ">
+			<p>Please enter details</p>
+			<form th:action="@{/LoginDashboard}" method="post">
 
-<!------ Include the above in your HEAD tag ---------->
 
-<!--
-    you can substitue the span of reauth email for a input with the email and
-    include the remember me checkbox
-    -->
-   
-   
-  
-    <div class="container" lass="p-3 mb-2 bg-info text-white">
-    <h2><marquee> Hello Administrator</marquee></h2>
-        <div class="card card-container">
-            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-            <img id="profile-img" class="profile-img-card" src="/img/Wdba.png" />
-            <p id="profile-name" class="profile-name-card"></p>
-            <form>
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <br>
-                <br>
-                
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <br>
-                <br>
-                <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-            </form><!-- /form -->
-            <a href="#" class="forgot-password">
-                Forgot the password?
-            </a>
-        </div><!-- /card-container -->
-    </div><!-- /container -->
- 
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Email address</label> <input
+						type="email" class="form-control" id="exampleInputEmail1"
+						aria-describedby="emailHelp" name="email" required> <small
+						id="emailHelp" class="form-text text-muted">We'll never
+						share your email with anyone else.</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label> <input
+						type="password" class="form-control" id="exampleInputPassword1"
+						name="password" required>
+				</div>
+				<div class="form-group form-check">
+
+					<a th:href="@{/forget}" class="forgot-password"> Forgot
+						password? </a>
+
+				</div>
+
+				<div class="text-center mt-4">
+					<button type="submit" class="btn btn-primary btn-lg"
+						onclick="auth()">Login</button>
+					<input type="reset" class="btn btn-primary btn-lg"
+						>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<script>
+	
+	/*
+		function auth() {
+			var email = document.getElementById("exampleInputEmail1").value;
+			var password = document.getElementById("exampleInputPassword1").value;
+			if (email == "admin@gmail.com" && password == "admin") {
+				alert("Welcome Admin");
+				window.location.assign("LoginDashboard.html");
+			} else {
+				alert("invalid Admin");
+				return;
+			}
+
+		}
+	*/
+		function clear() {
+			document.getElementById("exampleInputEmail1").value = "";
+		}
+	
+	</script>
 </body>
-
 </html>
